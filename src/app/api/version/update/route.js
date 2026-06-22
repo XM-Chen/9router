@@ -1,7 +1,15 @@
 import { NextResponse } from "next/server";
 import { killAppProcesses, spawnUpdaterAndExit } from "@/lib/appUpdater";
+import pkg from "../../../../../package.json" with { type: "json" };
 
 export async function POST() {
+  if (pkg.x_9routerFork) {
+    return NextResponse.json(
+      { success: false, message: "This local fork is protected from npm registry updates. Rebuild and install the fork package instead." },
+      { status: 403 }
+    );
+  }
+
   if (process.env.NODE_ENV !== "production") {
     return NextResponse.json(
       { success: false, message: "Update is only available in production build (9router CLI)" },

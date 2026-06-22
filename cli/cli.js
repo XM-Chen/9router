@@ -419,7 +419,7 @@ function isRestrictedEnvironment() {
 // Check if new version available, return latest version or null
 function checkForUpdate() {
   return new Promise((resolve) => {
-    if (skipUpdate) {
+    if (skipUpdate || pkg.x_9routerFork) {
       resolve(null);
       return;
     }

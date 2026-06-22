@@ -16,8 +16,9 @@ export const GITHUB_CONFIG = {
 // Updater configuration
 export const UPDATER_CONFIG = {
   npmPackageName: "9router",
-  installCmd: "npm i -g 9router",
-  installCmdLatest: "npm i -g 9router@latest --prefer-online",
+  localFork: pkg.x_9routerFork || null,
+  installCmd: pkg.x_9routerFork ? "Install from local fork package" : "npm i -g 9router",
+  installCmdLatest: pkg.x_9routerFork ? "Rebuild and install the local fork package" : "npm i -g 9router@latest --prefer-online",
   shutdownCountdownSec: 3,
   exitDelayMs: 500,
   statusPort: 20129,

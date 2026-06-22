@@ -3,6 +3,7 @@
   "version": "0.5.8",
   "description": "9Router web dashboard",
   "private": true,
+  "x_9routerFork": "XM-Chen/9router",
   "scripts": {
     "dev": "next dev --webpack --port 20127",
     "build": "next build --webpack",
